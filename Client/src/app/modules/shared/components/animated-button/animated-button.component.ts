@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-animated-button',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./animated-button.component.scss']
 })
 export class AnimatedButtonComponent {
+  @Output() openSidebar = new EventEmitter();
+
+  sendBoolean() {
+    this.openSidebar.emit()
+  }
 
 }
