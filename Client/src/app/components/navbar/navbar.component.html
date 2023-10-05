@@ -12,14 +12,30 @@
       <li><a href="#">ÁREA MÉDICA</a></li>
       <li><a href="#">RESTAURANTE</a></li>
       <li><a href="#">ÚNETE AL CLUB</a></li>
-      <li><a href="#">ÁREA DE SOCIO</a></li>
+      <li class="socio" ><a href="#">ÁREA DE SOCIO</a></li>
     </ul>
 
-    <button>
-      <div></div>
-      <div></div>
-      <div></div>
-    </button>
+    <app-animated-button class="btn1" (openSidebar)="setOpenSidebar()" />
+
+  </div>
+
+
+  <div class="sidebar" [ngClass]="{ 'sidebar--open' : isSidebarOpen }">
+   
+    <app-animated-button class="btn2" (openSidebar)="setOpenSidebar()" />
+
+    <ul>
+      <li><a href="#">CLUBS</a></li>
+      <li><a href="#">FITNESS</a></li>
+      <li><a href="#">CLASES</a></li>
+      <li><a href="#">SPA BALNEARIO</a></li>
+      <li><a href="#">CENTRO DE BELLEZA</a></li>
+      <li><a href="#">ÁREA MÉDICA</a></li>
+      <li><a href="#">RESTAURANTE</a></li>
+      <li><a href="#">ENTRENAMIENTO PERSONAL</a></li>
+      <li><a href="#">WELCOME PACK</a></li>
+      <li><a href="#">MAGAZINE</a></li>
+    </ul>
   </div>
 
 </nav>
