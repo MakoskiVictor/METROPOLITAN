@@ -11,6 +11,9 @@ import { AnimatedButtonComponent } from './components';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    AnimatedButtonComponent
   ]
 })
 export class SharedModule { }
