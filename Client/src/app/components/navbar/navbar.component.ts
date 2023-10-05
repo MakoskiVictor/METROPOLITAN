@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  isSidebarOpen: boolean = false;
+
+  setOpenSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  };
+
 }
