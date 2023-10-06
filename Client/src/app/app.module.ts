@@ -3,8 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+
 import { SharedModule } from './modules';
+import { HomeModule, LoginModule } from './pages';
+import { NavbarComponent } from './components';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,9 @@ import { SharedModule } from './modules';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    HomeModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
