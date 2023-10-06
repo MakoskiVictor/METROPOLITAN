@@ -1,0 +1,27 @@
+section {
+
+  @keyframes banner_home {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .banner_home {
+    width: 100%;
+    animation: banner_home 1s ease-in-out;
+  }
+
+  /* .bannerContainer {
+    width: 100%;
+    opacity: 0; 
+    transition: opacity 1s ease-in-out;
+
+    .banner_home {
+      width: 100%;
+      transition-delay: 0.5s;
+    }
+  } */
+}
