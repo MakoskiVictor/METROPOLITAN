@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
     // Verificar si el componente está a la vista (en la mitad de la ventana)
     if (scrollPosition >= componentPosition - window.innerHeight) {
-      this.showExperienceSectionAnimation = !this.showExperienceSectionAnimation;
+      this.showExperienceSectionAnimation = true;
     } else {
       this.showExperienceSectionAnimation = false;
     }
