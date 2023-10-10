@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { carouselFiles } from './utils';
 
 @Component({
   selector: 'app-carousel-container',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./carousel-container.component.scss']
 })
 export class CarouselContainerComponent {
+
+  carouselImages = carouselFiles;
 
 }
