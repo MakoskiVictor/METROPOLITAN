@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnimatedButtonComponent, FooterComponent } from './components';
+import { AnimatedButtonComponent, FooterComponent, ToTopArrowComponent } from './components';
+
 
 
 
@@ -9,14 +10,16 @@ import { AnimatedButtonComponent, FooterComponent } from './components';
 @NgModule({
   declarations: [
     AnimatedButtonComponent,
-    FooterComponent
+    FooterComponent,
+    ToTopArrowComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
     AnimatedButtonComponent,
-    FooterComponent
+    FooterComponent,
+    ToTopArrowComponent
   ]
 })
 export class SharedModule { }
