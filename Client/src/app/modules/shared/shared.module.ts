@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnimatedButtonComponent } from './components';
+import { AnimatedButtonComponent, FooterComponent } from './components';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AnimatedButtonComponent
+    AnimatedButtonComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule
