@@ -1,11 +1,11 @@
 <main>
-  
+
   <section class="bannerContainer" >
     <div class="imagePlaceholder" [ngClass]="{ 'showPlaceholder': !showImage }"></div>
     <img  [ngClass]="{ 'banner_home' : 'showImage' }" fetchpriority="high" src="assets/images/BANNER_HOME.jpg" alt="Banner_Home" (load)="showAnimation()">
   </section>
 
-  <app-to-top-arrow />
+  
 
   <section class="experienceContainer" >
     <div class="textContainer" id="sliderHTML" [ngClass]="{ 'show-animation': 'showExperienceSectionAnimation' }">
@@ -30,6 +30,8 @@
     <app-carousel-container />
 
     <app-fitness-section />
+
+    <app-to-top-arrow />
 
 </main>
 <app-footer />
