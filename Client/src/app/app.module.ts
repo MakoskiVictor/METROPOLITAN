@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SharedModule } from './modules';
-import { HomeModule, LoginModule } from './pages';
+import { HomeModule, LoginModule, WorkingModule } from './pages';
 import { NavbarComponent } from './components';
 
 
@@ -19,7 +19,8 @@ import { NavbarComponent } from './components';
     AppRoutingModule,
     SharedModule,
     HomeModule,
-    LoginModule
+    LoginModule,
+    WorkingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
