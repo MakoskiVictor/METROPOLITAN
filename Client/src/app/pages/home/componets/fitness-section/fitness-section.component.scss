@@ -1,0 +1,85 @@
+section {
+  display: flex;
+  background-color: rgb(0, 0, 0);
+
+  .left-cont {
+    width: 40%;
+    display: flex;
+    
+
+    .text-cont {
+      max-height: 400px;
+      padding: 1rem;
+      justify-self: center;
+      align-self: center;
+
+      h3 {
+        font-family: Roboto-Bold;
+        text-transform: uppercase;
+        font-size: 4.375rem;
+        color: rgb(255, 255, 255);
+        text-wrap: wrap;
+        text-align: end;
+
+        @media screen and (max-width: 1600px) {
+          font-size: 3.125rem;
+        }
+
+        @media screen and (max-width: 900px) {
+          font-size: 1.75rem;
+          text-align: center;
+        }
+      }
+  
+      p {
+        text-align: end;
+        text-wrap: wrap;
+        font-size: 1.3125rem;
+        color: var(--gray);
+
+        @media screen and (max-width: 1600px) {
+          font-size: 1rem;
+        }
+
+        @media screen and (max-width: 900px) {
+          font-size: 1rem;
+          text-align: left;
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        width: 90%;
+        margin: auto;
+      }
+    }
+    @media screen and (max-width: 900px) {
+      width: 100%;
+      max-height: fit-content;
+    }
+  }
+
+  .right-cont {
+    width: 60%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      vertical-align: top;
+      width: 100%;
+      object-fit: cover;
+      transition: 1s;
+
+      &:hover {
+        transform: scale(1.1);    
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+  }
+}
