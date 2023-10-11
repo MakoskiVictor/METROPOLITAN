@@ -15,7 +15,8 @@ import { AnimatedButtonComponent, FooterComponent } from './components';
     CommonModule
   ],
   exports: [
-    AnimatedButtonComponent
+    AnimatedButtonComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
