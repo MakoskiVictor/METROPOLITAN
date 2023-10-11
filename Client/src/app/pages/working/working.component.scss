@@ -1,0 +1,31 @@
+section {
+  background-color: rgb(0, 0, 0);
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  div {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 70%;
+
+    img {
+      object-fit: fill;
+      max-width: 100%;
+
+    }
+  }
+}
+
+@media (max-width: 31.25rem) {
+  section {
+    height: 100vh;
+  }
+}
