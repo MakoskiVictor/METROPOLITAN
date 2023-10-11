@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WorkingComponent } from './working.component';
+import { SharedModule } from 'src/app/modules';
 
 
 
@@ -10,7 +11,8 @@ import { WorkingComponent } from './working.component';
     WorkingComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     WorkingComponent
