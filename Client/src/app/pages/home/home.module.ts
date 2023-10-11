@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { CarouselComponent, CarouselContainerComponent } from './componets';
+import { CarouselComponent, CarouselContainerComponent, FitnessSectionComponent } from './componets';
 import { SharedModule } from 'src/app/modules';
+
 
 
 
@@ -12,7 +13,8 @@ import { SharedModule } from 'src/app/modules';
   declarations: [
     HomeComponent,
     CarouselComponent,
-    CarouselContainerComponent
+    CarouselContainerComponent,
+    FitnessSectionComponent
   ],
   imports: [
     CommonModule,
