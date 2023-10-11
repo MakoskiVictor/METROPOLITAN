@@ -1,17 +1,17 @@
 .arrow {
   text-decoration: none;
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 3.125rem;
+  bottom: 3.125rem;
   background-color: white;
   display: none;
   justify-content: center;
   align-content: center;
   z-index: 40000;
   transition: all 2s;
-  border-radius: 1px;
+  border-radius: .0625rem;
   
   &.--visible {
     animation-name: fade;
@@ -19,7 +19,7 @@
   }
 
   i {
-    font-size: 50px;
+    font-size: 3.125rem;
     text-align: center;
     color: rgb(0, 0, 0);
   }
@@ -29,15 +29,14 @@
 @media (max-width: 600px) {
 
   .arrow {
-    width: 35px;
-    height: 35px;
+    width: 2.1875rem;
+    height: 2.1875rem;
     background-color: transparent;
 
     i {
-      /* background-color: transparent; */
-      font-size: 35px;
-      width: 35px;
-      height: 35px;
+      font-size: 2.1875rem;
+      width: 2.1875rem;
+      height: 2.1875rem;
     }
   }
   
