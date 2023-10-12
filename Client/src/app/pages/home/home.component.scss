@@ -54,13 +54,13 @@ main {
 
         h1 {
           color: white;
-          font-size: 3.75rem;
+          font-size: var(--title);
           text-align: center;
           margin: auto;
           padding: 1rem;
 
           @media (max-width: 800px) {
-            font-size: 1.875rem;
+            font-size: var(--title-phone);
           }
         }
       }
@@ -73,13 +73,13 @@ main {
 
         p {
           color: white;
-          font-size: 1.3125rem;
+          font-size: var(--text);
           text-wrap: wrap;
           margin: auto;
           padding: 1rem;
 
           @media (max-width: 800px) {
-            font-size: 15px;
+            font-size: var(--text-responsive);
           }
         }
 
