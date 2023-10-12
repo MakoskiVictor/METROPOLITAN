@@ -17,7 +17,7 @@ section {
       h2 {
         text-transform: uppercase;
         text-wrap: wrap;
-        font-size: 70px;
+        font-size: var(--title);
         font-family: Roboto-Bold;
         padding: 1rem;
         align-self: flex-end;
@@ -34,7 +34,7 @@ section {
         text-wrap: wrap;
         max-width: 90%;
         padding: 1rem;
-        font-size: 1.3125rem;
+        font-size: var(--text);
         color: var(--gray);
         margin: 0 auto auto 0;
       }
@@ -53,28 +53,28 @@ section {
 
       .title {
         margin: auto;
-        padding: 1 rem;
+        padding: 1rem;
         justify-content: center;
         align-content: center;
 
         h2 {
           margin: auto;
-          font-size: 1.75rem;
+          font-size: var(--title-phone);
           align-self: center;
         }
       }
 
       .text-container {
         margin: auto;
-        padding: 1 rem;
+        padding: 1rem;
         justify-content: center;
         align-content: center;
 
         p {
-          padding: 1 rem;
+          padding: 1rem;
           margin: auto;
           align-self: center;
-          font-size: 1rem;
+          font-size: var(--text-responsive);
 
         }
       }

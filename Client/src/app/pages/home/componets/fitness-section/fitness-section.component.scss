@@ -16,17 +16,17 @@ section {
       h3 {
         font-family: Roboto-Bold;
         text-transform: uppercase;
-        font-size: 4.375rem;
+        font-size: var(--title);
         color: rgb(255, 255, 255);
         text-wrap: wrap;
         text-align: end;
 
         @media screen and (max-width: 1600px) {
-          font-size: 3.125rem;
+          font-size: var(--title-responsive);
         }
 
         @media screen and (max-width: 900px) {
-          font-size: 1.75rem;
+          font-size: var(--title-phone);
           text-align: center;
         }
       }
@@ -34,15 +34,15 @@ section {
       p {
         text-align: end;
         text-wrap: wrap;
-        font-size: 1.3125rem;
+        font-size: var(--text);
         color: var(--gray);
 
         @media screen and (max-width: 1600px) {
-          font-size: 1rem;
+          font-size: var(--text-responsive);
         }
 
         @media screen and (max-width: 900px) {
-          font-size: 1rem;
+          font-size: .875rem;
           text-align: left;
         }
       }
