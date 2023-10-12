@@ -13,14 +13,14 @@ export class ToTopArrowComponent {
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {
     const scrollOffset = window.pageYOffset;
-    // Aquí puedes manejar el evento de scroll
+    // Manejo del evento de scroll
     console.log('Scrolling...', scrollOffset, this.pageScrolled);
     if (scrollOffset >= 400) {
       this.pageScrolled = true;
     } else {
       this.pageScrolled = false;
     }
-    // Puedes realizar cualquier lógica que desees cuando ocurre el evento de scroll.
+
   }
 
 }
