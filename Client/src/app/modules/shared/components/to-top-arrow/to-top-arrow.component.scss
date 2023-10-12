@@ -12,6 +12,7 @@
   z-index: 40000;
   transition: all 2s;
   border-radius: .0625rem;
+  opacity: 0.6;
   
   &.--visible {
     animation-name: fade;
@@ -19,7 +20,7 @@
   }
 
   &:hover {
-    transform: scale(1.1);
+    opacity: 1;
     transition: .4s ease;
   }
 
