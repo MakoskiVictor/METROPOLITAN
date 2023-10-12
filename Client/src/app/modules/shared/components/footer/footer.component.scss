@@ -1,0 +1,67 @@
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: .5rem;
+  border-top: 2px solid rgb(200, 198, 198);
+  
+  div {
+    flex: 1;
+    gap: 20px;
+    padding: 1rem;
+    max-width: 250px;
+
+    li {
+      padding: .5rem;
+      
+      a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+    }
+
+    
+    .cont-logos {
+      display: flex;
+      max-width: 200px;
+      justify-content: start;
+      padding: 1rem;
+      margin: 0;
+
+      a {
+        padding: 0;
+        margin: 0;
+        width: 25px;
+        height: 25px;
+        img {
+          width: 25px;
+          object-fit: contain;
+        }
+      }
+
+    }
+      .rights {
+        color: var(--gray);
+        text-wrap: wrap;
+      }
+
+  }
+
+}
+
+@media screen and (max-width: 1100px) {
+  footer {
+
+    div {
+      flex: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    div {
+      flex-basis: 100%;
+    }
+  }
+}

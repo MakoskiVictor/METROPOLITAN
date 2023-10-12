@@ -1,0 +1,41 @@
+<nav>
+  <a href="">
+    <img class="logo" src="assets/logo/metrpolitan-logo-black.webp" alt="metropolitan-logo">
+  </a>
+    
+  <div class="container">
+    <ul>
+      <li><a href="/working">CLUBS</a></li>
+      <li><a href="/working">FITNESS</a></li>
+      <li><a href="/working">SPA BALNEARIO</a></li>
+      <li><a href="/working">CENTRO DE BELLEZA</a></li>
+      <li><a href="/working">ÁREA MÉDICA</a></li>
+      <li><a href="/working">RESTAURANTE</a></li>
+      <li><a href="/working">ÚNETE AL CLUB</a></li>
+      <li class="socio" ><a href="#">ÁREA DE SOCIO</a></li>
+    </ul>
+
+    <app-animated-button class="btn1" (openSidebar)="setOpenSidebar()" />
+
+  </div>
+
+
+  <div class="sidebar" [ngClass]="{ 'sidebar--open' : isSidebarOpen }">
+   
+    <app-animated-button class="btn2" (openSidebar)="setOpenSidebar()" />
+
+    <ul>
+      <li><a href="/working">CLUBS</a></li>
+      <li><a href="/working">FITNESS</a></li>
+      <li><a href="/working">CLASES</a></li>
+      <li><a href="/working">SPA BALNEARIO</a></li>
+      <li><a href="/working">CENTRO DE BELLEZA</a></li>
+      <li><a href="/working">ÁREA MÉDICA</a></li>
+      <li><a href="/working">RESTAURANTE</a></li>
+      <li><a href="/working">ENTRENAMIENTO PERSONAL</a></li>
+      <li><a href="/working">WELCOME PACK</a></li>
+      <li><a href="/working">MAGAZINE</a></li>
+    </ul>
+  </div>
+
+</nav>

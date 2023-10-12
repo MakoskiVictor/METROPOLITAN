@@ -1,0 +1,37 @@
+<main>
+
+  <section class="bannerContainer" >
+    <div class="imagePlaceholder" [ngClass]="{ 'showPlaceholder': showImage }"></div>
+    <img  [ngClass]="{ 'banner_home' : 'showImage' }" fetchpriority="high" src="assets/images/BANNER_HOME.jpg" alt="Banner_Home" (load)="showAnimation()">
+  </section>
+
+  
+
+  <section class="experienceContainer" >
+    <div class="textContainer"  [ngClass]="{ 'textContainer show-animation': 'showExperienceSectionAnimation' }">
+
+      <div class="titleContainer">
+        <h1>VIVE LA EXPERIENCIA METROPOLITAN</h1>
+      </div>
+
+      <div class="descriptionContainer">
+        <P> Bienvenido a una experiencia de bienestar 360º que combina las últimas novedades y 
+          tendencias de Fitness, Belleza, SPA, Medicina Deportiva y Nutrición en un espacio de 
+          diseño único.</P>   
+        </div>
+
+        <a href="#espacios" class="arrowContainer">
+          <img src="assets/icon/arrow.ico" alt="down-arrow">
+        </a>
+
+    </div>
+  </section>
+
+    <app-carousel-container id="espacios" />
+
+    <app-fitness-section />
+
+    <app-to-top-arrow />
+
+</main>
+<app-footer />

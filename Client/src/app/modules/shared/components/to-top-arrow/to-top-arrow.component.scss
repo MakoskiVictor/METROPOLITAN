@@ -1,0 +1,60 @@
+.arrow {
+  text-decoration: none;
+  width: 3.125rem;
+  height: 3.125rem;
+  position: fixed;
+  right: 3.125rem;
+  bottom: 3.125rem;
+  background-color: white;
+  display: none;
+  justify-content: center;
+  align-content: center;
+  z-index: 40000;
+  transition: all 2s;
+  border-radius: .0625rem;
+  opacity: 0.6;
+  
+  &.--visible {
+    animation-name: fade;
+    display: flex;
+  }
+
+  &:hover {
+    opacity: 1;
+    transition: .4s ease;
+  }
+
+  i {
+    font-size: 3.125rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .arrow {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: transparent;
+
+    i {
+      font-size: 2.1875rem;
+      width: 2.1875rem;
+      height: 2.1875rem;
+    }
+  }
+  
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+    right: -50px;
+  }
+  to {
+    opacity: 1;
+    right: 0;
+  }
+}

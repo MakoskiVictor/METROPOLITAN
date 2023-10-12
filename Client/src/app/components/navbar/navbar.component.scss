@@ -1,0 +1,161 @@
+nav {
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  letter-spacing: .8px;
+  
+
+  a {
+    align-self: center;
+    .logo {
+      width: 250px;
+      height: 22px;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 40px;
+
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+  
+      li {
+        padding: 5px 8px;
+
+        a {
+          font-size: 15px;
+          cursor: pointer;
+          position: relative;
+          text-decoration: none;
+          padding: 0 1px;
+          color: rgb(0, 0, 0);
+  
+          &:after {
+            content: "";
+            position: absolute;
+            background-color: black;
+            height: 2px;
+            width: 0%;
+            left: 0;
+            bottom: -7px;
+            transition: 0.3s;
+          }
+          
+          &:hover:after {
+            width: 100%;
+          }
+
+        }
+
+        &.socio {
+          border: 1px solid black;
+
+          &:hover {
+            background-color: black;
+            transition: .3s;
+            & a {
+              color: white;
+              &:after {
+                width: 0%;
+              }
+            }
+
+          }
+        }
+      }
+  
+    }
+
+  }
+
+  .btn1 {
+    margin: auto 40px;
+  }
+
+  .sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Inicialmente oculto */
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  transition: right 0.3s ease-in-out; /* Agrega una transición suave */
+  z-index: 99999;
+
+  .btn2 {
+    position: fixed;
+    top: 1.875rem;
+    right: -100px;
+    transition: right 0.3s ease-in-out;
+  }
+
+  ul {
+    margin-top: 50px;
+    list-style: none;
+    padding: 20px;
+
+    li {
+      margin-bottom: 15px;
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          background-color: black;
+          height: 3px;
+          width: 0%;
+          left: 0;
+          bottom: -7px;
+          transition: 0.3s;
+        }
+        
+        &:hover:after {
+          margin: 50px 0 0 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &--open {
+    right: 0; /* Muestra el sidebar cuando la clase open está presente */
+    .btn2 {
+      position: fixed;
+      top: 1.875rem;
+      right: 3.125rem;
+    }
+  }
+  }
+
+}
+
+@media (max-width: 1300px ) {
+  nav {
+    width: 100%;
+    margin: 0;
+    gap: 0;
+    .container {
+      ul {
+        display: none;
+  
+        li {
+          display: none;
+        }
+      }
+    }
+
+  }
+}
+
