@@ -1,14 +1,14 @@
 <main>
 
   <section class="bannerContainer" >
-    <div class="imagePlaceholder" [ngClass]="{ 'showPlaceholder': !showImage }"></div>
+    <div class="imagePlaceholder" [ngClass]="{ 'showPlaceholder': showImage }"></div>
     <img  [ngClass]="{ 'banner_home' : 'showImage' }" fetchpriority="high" src="assets/images/BANNER_HOME.jpg" alt="Banner_Home" (load)="showAnimation()">
   </section>
 
   
 
   <section class="experienceContainer" >
-    <div class="textContainer" id="sliderHTML" [ngClass]="{ 'show-animation': 'showExperienceSectionAnimation' }">
+    <div class="textContainer"  [ngClass]="{ 'textContainer show-animation': 'showExperienceSectionAnimation' }">
 
       <div class="titleContainer">
         <h1>VIVE LA EXPERIENCIA METROPOLITAN</h1>
