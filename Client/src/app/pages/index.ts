@@ -9,5 +9,6 @@ export * from './legal-information';
 export * from './login/components';
 export * from './login/components/login-form';
 export * from './login';
+export * from './recover-password';
 export * from './register';
 export * from './working';
