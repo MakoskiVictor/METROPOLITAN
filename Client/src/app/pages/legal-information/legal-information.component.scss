@@ -1,0 +1,15 @@
+section {
+    padding: 5rem;
+    border-top: 1px solid var(--gray);
+    text-wrap: wrap;
+
+    h4 {
+        text-transform: uppercase;
+        font-size: var(--subtitle);
+        margin-top: 0;
+    }
+
+    p {
+        color: var(--gray);
+    }
+}
