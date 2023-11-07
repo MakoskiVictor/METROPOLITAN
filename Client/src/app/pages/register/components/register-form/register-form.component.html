@@ -3,17 +3,18 @@
 
     <div class="columns-cont">
         <div class="column-1">
-            <input type="text" placeholder="Nombre" registerForm="firstname" >
-            <input type="text" placeholder="Apellido" registerForm="lastname">
-            <input type="mail" placeholder="Email" registerForm="email">
+            <input type="text" placeholder="Nombre" formControlName="firstname" >
+            <input type="text" placeholder="Apellido" formControlName="lastname">
+            <input type="mail" placeholder="Email" formControlName="email">
         </div>
     
         <div class="column-2">
-            <input type="password" placeholder="Contraseña" registerForm="password">
+            <input type="password" placeholder="Contraseña" formControlName="password">
             <!-- <div *ngIf="password.errors?['required'] >
 
             </div> -->
-            <input type="password" placeholder="Repita contraseña" >
+            <input type="password" placeholder="Repita contraseña" formControlName="passwordCheck">
+
             <div class="line-cont">
                 <div class="line"></div>
             </div>
@@ -25,7 +26,7 @@
         <input type="checkbox"> <a target="_blank" href="/informacion-legal">He leído y acepto las condiciones de protección de datos</a>
     </div>
     
-        <button type="submit" [disabled]="registerForm.valid">Continuar</button>
+        <button type="submit" [disabled]="!registerForm.valid">Continuar</button>
 
     </div>
 
