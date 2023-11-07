@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -8,59 +8,57 @@ import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/f
 })
 export class RegisterFormComponent {
 
-  registerForm: FormGroup = new FormGroup({})
+  registerForm: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
-      this.initRegisterForm()
+    this.initRegisterForm();
   }
 
-  initRegisterForm () {
+  initRegisterForm() {
     this.registerForm = new FormGroup({
       firstname: new FormControl('', [
         Validators.required, 
         Validators.minLength(5)
       ]),
-      lastname: new FormControl('', 
-        [Validators.required, 
+      lastname: new FormControl('', [
+        Validators.required, 
         Validators.minLength(5)
       ]),
       email: new FormControl('', [
         Validators.required, 
-        Validators.minLength(5), 
         Validators.email
       ]),
       password: new FormControl('', [
         Validators.required, 
         Validators.minLength(5), 
-        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$")
+        Validators.pattern(/^(?=.*[A-Z]).+$/),
+        Validators.pattern(/^(?=.*[a-z]).+$/),
+        Validators.pattern(/^(?=.*\d).+$/)
       ]),
       passwordCheck: new FormControl('', [
-        Validators.required, 
-        Validators.minLength(5), 
-        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$")
+        Validators.required
       ])
-    })
+    }, { validators: this.passwordMatchValidator.bind(this) });
   }
 
-  onSubmit () {
+  onSubmit() {
     console.warn(this.registerForm.value);
+    console.warn(this.registerForm.get('password')?.errors);
   }
 
-  passwordMatchValidator (control: FormControl): ValidationErrors | null {
-    const otherControl = this.registerForm.get("password")
+  passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors |
+null => {
+const password = control.get('password')?.value;
+const passwordCheck = control.get('passwordCheck')?.value;
+// Solo devuelve un error si ambos campos han sido tocados o están dirty.
+if (control.get('password')?.dirty && control.get('passwordCheck')?.dirty &&
+password !== passwordCheck) {
+// Se recomienda establecer el error en el control específico
+control.get('passwordCheck')?.setErrors({ passwordMismatch: true });
+return { passwordMismatch: true };
+}
+return null;
+};
 
-    if (!otherControl) {
-      return { equalTo: "El campo debe completarse" }
-    }
-
-    const value = control.value;
-    const otherValue = otherControl.value;
-
-    if (value !== otherValue) {
-      return { equalTo: "Las contraseñas no coinciden" };
-    }
-
-    return null;
-  }
 
 }
