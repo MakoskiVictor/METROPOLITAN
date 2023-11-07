@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -8,17 +8,59 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterFormComponent {
 
-  registerForm = new FormGroup({
-    firstname: new FormControl('', [Validators.required/* , Validators.minLength(5) */]),
-    lastname: new FormControl('', [Validators.required/* , Validators.minLength(5) */]),
-    email: new FormControl('', [Validators.required/* , Validators.minLength(5), Validators.email */]),
-    password: new FormControl('', [Validators.required, /* Validators.minLength(5) *//* , Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$") */])
-  })
+  registerForm: FormGroup = new FormGroup({})
 
-  passwordCheck = new FormControl('', [Validators.required]);
+  ngOnInit(): void {
+      this.initRegisterForm()
+  }
+
+  initRegisterForm () {
+    this.registerForm = new FormGroup({
+      firstname: new FormControl('', [
+        Validators.required, 
+        Validators.minLength(5)
+      ]),
+      lastname: new FormControl('', 
+        [Validators.required, 
+        Validators.minLength(5)
+      ]),
+      email: new FormControl('', [
+        Validators.required, 
+        Validators.minLength(5), 
+        Validators.email
+      ]),
+      password: new FormControl('', [
+        Validators.required, 
+        Validators.minLength(5), 
+        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$")
+      ]),
+      passwordCheck: new FormControl('', [
+        Validators.required, 
+        Validators.minLength(5), 
+        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$")
+      ])
+    })
+  }
 
   onSubmit () {
     console.warn(this.registerForm.value);
+  }
+
+  passwordMatchValidator (control: FormControl): ValidationErrors | null {
+    const otherControl = this.registerForm.get("password")
+
+    if (!otherControl) {
+      return { equalTo: "El campo debe completarse" }
+    }
+
+    const value = control.value;
+    const otherValue = otherControl.value;
+
+    if (value !== otherValue) {
+      return { equalTo: "Las contraseñas no coinciden" };
+    }
+
+    return null;
   }
 
 }
