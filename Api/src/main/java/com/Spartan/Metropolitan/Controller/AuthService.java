@@ -24,10 +24,16 @@ public class AuthService {
     }
     
     public AuthResponse register(RegisterRequest request){
+         
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new Exception("Email already in use");
+        }
+        
         User user = User.builder()
+                .firstname(request.getFirstname())
                 .username(request.getUsername())
-                .lastname(passwordEncoder.encode(request.getLastname()))
-                .password(request.getPassword())
+                .lastname(request.getLastname())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .country(request.getCountry())
                 .email(request.getEmail())
                 .role(Role.USER)
