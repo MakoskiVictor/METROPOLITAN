@@ -11,7 +11,7 @@ export class RegisterFormComponent {
 
   registerForm: FormGroup = new FormGroup({});
 
-  /* constructor (private RegisterService: RegisterService ) {} */
+  constructor (private RegisterService: RegisterService ) {}
 
   ngOnInit(): void {
     this.initRegisterForm();
@@ -50,11 +50,9 @@ export class RegisterFormComponent {
     }, { validators: this.passwordMatchValidator.bind(this) });
   }
 
-  public onSubmit() {
+  /* public onSubmit() {
     console.log(this.registerForm.value)
-    /* console.warn(this.registerForm.value);
-    console.warn(this.registerForm.get('password')?.errors); */
-  }
+  } */
 
   passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     const password = control.get('password')?.value;
@@ -69,12 +67,12 @@ export class RegisterFormComponent {
     return null;
   }
 
-  /* public postNewUser () {
+  public onSubmit () {
     this.RegisterService.postUser("http://localhost:8080/auth/register", this.registerForm.value )
     .subscribe(res => {
       console.log('Form sended!!')
     })
-  } */
+  }
 
 
 }
