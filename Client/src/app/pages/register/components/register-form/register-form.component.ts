@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { RegisterService } from 'src/app/services';
 
 @Component({
   selector: 'app-register-form',
@@ -9,6 +10,8 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn,
 export class RegisterFormComponent {
 
   registerForm: FormGroup = new FormGroup({});
+
+  /* constructor (private RegisterService: RegisterService ) {} */
 
   ngOnInit(): void {
     this.initRegisterForm();
@@ -47,9 +50,10 @@ export class RegisterFormComponent {
     }, { validators: this.passwordMatchValidator.bind(this) });
   }
 
-  onSubmit() {
-    console.warn(this.registerForm.value);
-    console.warn(this.registerForm.get('password')?.errors);
+  public onSubmit() {
+    console.log(this.registerForm.value)
+    /* console.warn(this.registerForm.value);
+    console.warn(this.registerForm.get('password')?.errors); */
   }
 
   passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
@@ -64,6 +68,13 @@ export class RegisterFormComponent {
     }
     return null;
   }
+
+  /* public postNewUser () {
+    this.RegisterService.postUser("http://localhost:8080/auth/register", this.registerForm.value )
+    .subscribe(res => {
+      console.log('Form sended!!')
+    })
+  } */
 
 
 }
