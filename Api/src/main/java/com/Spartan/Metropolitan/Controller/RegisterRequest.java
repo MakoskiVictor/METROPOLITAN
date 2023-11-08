@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegisterRequest {
     
-    String username;
     @NotBlank (message = "Password is mandatory")
     String password;
     String firstname;
