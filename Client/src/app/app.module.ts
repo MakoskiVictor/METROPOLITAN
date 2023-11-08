@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './modules';
 import { HomeModule, LoginModule, WorkingModule } from './pages';
 import { NavbarComponent } from './components';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components';
     SharedModule,
     HomeModule,
     LoginModule,
-    WorkingModule
+    WorkingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

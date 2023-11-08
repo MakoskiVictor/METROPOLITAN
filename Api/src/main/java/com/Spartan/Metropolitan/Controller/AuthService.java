@@ -23,7 +23,7 @@ public class AuthService {
     return null;
     }
     
-    public AuthResponse register(RegisterRequest request){
+    public AuthResponse register(RegisterRequest request) throws Exception{
          
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new Exception("Email already in use");

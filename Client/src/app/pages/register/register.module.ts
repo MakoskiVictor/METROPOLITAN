@@ -6,9 +6,6 @@ import { SharedModule } from 'src/app/modules';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
-
-
 @NgModule({
   declarations: [
     RegisterComponent,
