@@ -21,19 +21,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="user",uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
+@Table(name="user",uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 
 public class User implements UserDetails{
     @Id
     @GeneratedValue
     Integer id;
     @Column(nullable = false)
-    String username;
+    String email;
+    String password;
     String lastname;
     String firstname;
     String country;
-    String email;
-    String password;
     Role role; 
 
     @Override
@@ -60,6 +59,11 @@ public class User implements UserDetails{
     @Override
     public boolean isEnabled() {
     return true;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
     }
     
 }

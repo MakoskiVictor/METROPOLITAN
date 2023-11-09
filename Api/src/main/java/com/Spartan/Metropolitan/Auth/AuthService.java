@@ -1,4 +1,4 @@
-package com.Spartan.Metropolitan.Controller;
+package com.Spartan.Metropolitan.Auth;
 
 
 import com.Spartan.Metropolitan.User.Role;

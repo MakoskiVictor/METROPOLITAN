@@ -1,5 +1,5 @@
 
-package com.Spartan.Metropolitan.Controller;
+package com.Spartan.Metropolitan.Auth;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class AuthController {
     @PostMapping(value="login")
     public ResponseEntity <AuthResponse> login(@RequestBody LoginRequest request)
     {
-     return ResponseEntity.ok(new AuthResponse());
+     return ResponseEntity.ok(authService.login(request));
     }
             
     
