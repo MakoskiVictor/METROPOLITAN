@@ -37,7 +37,7 @@ public class AuthService {
         
     }
     
-    public AuthResponse register(RegisterRequest request) throws Exception{
+    public void register(RegisterRequest request) throws Exception{
          
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new Exception("Email already in use");
@@ -56,9 +56,7 @@ public class AuthService {
         userRepository.save(user);
 
         
-        return AuthResponse.builder()
-                .token(jwtService.getToken(user))
-                .build();
+       
     }
 
  

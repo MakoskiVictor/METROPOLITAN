@@ -28,10 +28,12 @@ public class AuthController {
     
     
     @PostMapping(value="register")
-    public ResponseEntity <AuthResponse>  register(@Valid @RequestBody RegisterRequest request) throws Exception 
+    public ResponseEntity<String>  register(@Valid @RequestBody RegisterRequest request) throws Exception 
     {
         
-    return ResponseEntity.ok(authService.register(request));    
+        authService.register(request);
+        
+    return ResponseEntity.ok("Registration was successful");    
     }
     
     
