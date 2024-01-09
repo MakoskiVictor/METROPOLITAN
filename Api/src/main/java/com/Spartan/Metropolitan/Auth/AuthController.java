@@ -1,5 +1,5 @@
 
-package com.Spartan.Metropolitan.Controller;
+package com.Spartan.Metropolitan.Auth;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,16 +22,18 @@ public class AuthController {
     @PostMapping(value="login")
     public ResponseEntity <AuthResponse> login(@RequestBody LoginRequest request)
     {
-     return ResponseEntity.ok(new AuthResponse());
+     return ResponseEntity.ok(authService.login(request));
     }
             
     
     
     @PostMapping(value="register")
-    public ResponseEntity <AuthResponse>  register(@Valid @RequestBody RegisterRequest request) throws Exception 
+    public ResponseEntity<String>  register(@Valid @RequestBody RegisterRequest request) throws Exception 
     {
         
-    return ResponseEntity.ok(authService.register(request));    
+        authService.register(request);
+        
+    return ResponseEntity.ok("Registration was successful");    
     }
     
     
