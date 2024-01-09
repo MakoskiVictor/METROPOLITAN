@@ -1,9 +1,10 @@
-import { Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-to-top-arrow',
   templateUrl: './to-top-arrow.component.html',
-  styleUrls: ['./to-top-arrow.component.scss']
+  styleUrls: ['./to-top-arrow.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToTopArrowComponent {
 

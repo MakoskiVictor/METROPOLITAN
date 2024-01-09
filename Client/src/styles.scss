@@ -2,6 +2,8 @@
 :root {
   --gray: rgb(120, 120, 120);
 
+  --color-white: rgb(255, 255, 255);
+
   --text: 1.125rem;
 
   --text-responsive: 1rem;
@@ -11,6 +13,8 @@
   --title-responsive: 2.8125rem;
 
   --title-phone: 2.8125rem;
+
+  --subtitle: 2rem;
 }
 
 html {
@@ -77,4 +81,9 @@ body::-webkit-scrollbar {
 
 li {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }

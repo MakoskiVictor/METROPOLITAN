@@ -1,0 +1,32 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+    <div class="form-cont">
+
+    <div class="columns-cont">
+        <div class="column-1">
+            <input type="text" placeholder="Nombre" formControlName="firstname" >
+            <input type="text" placeholder="Apellido" formControlName="lastname">
+            <input type="mail" placeholder="Email" formControlName="email">
+        </div>
+    
+        <div class="column-2">
+            <input type="password" placeholder="Contraseña" formControlName="password">
+
+            <input type="password" placeholder="Repita contraseña" formControlName="passwordCheck">
+
+            <div class="line-cont">
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    <p>Form Status: {{registerForm.status}} </p>
+
+    <div class="check">
+        <input type="checkbox" formControlName="checkBox" > <a target="_blank" href="/informacion-legal">He leído y acepto las condiciones de protección de datos</a>
+    </div>
+    
+        <button type="submit" [disabled]="!registerForm.valid">Continuar</button>
+
+    </div>
+
+</form>
+
