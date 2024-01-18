@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { RegisterDto } from './dto/register.dto';
 import * as bcryptjs from 'bcryptjs';
+import { LoginDto } from './dto/login.dto';
 
 @Injectable()
 export class AuthService {
@@ -22,7 +23,28 @@ export class AuthService {
     });
   }
 
-  login() {
-    return 'login';
+  async login({ email, password }: LoginDto) {
+    const findUserMail = await this.usersService.findOneByEmail(email);
+
+    if (!findUserMail) {
+      return new HttpException(
+        'Wrong email or password',
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
+
+    const isPasswordValid = await bcryptjs.compare(
+      password,
+      findUserMail.password,
+    );
+
+    if (!isPasswordValid) {
+      return new HttpException(
+        'Wrong email or password',
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
+
+    return findUserMail;
   }
 }
