@@ -3,11 +3,15 @@ import { UsersService } from 'src/users/users.service';
 import { RegisterDto } from './dto/register.dto';
 import * as bcryptjs from 'bcryptjs';
 import { LoginDto } from './dto/login.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
   // Este service debe conectarse con otro módulo para usar el otro servicio: UserService
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+  ) {}
 
   async register({ firstname, lastname, email, password }: RegisterDto) {
     const findUserMail = await this.usersService.findOneByEmail(email);
@@ -19,24 +23,22 @@ export class AuthService {
       firstname,
       lastname,
       email,
-      password: await bcryptjs.hash(password, 10),
+      password: await bcryptjs.hash(password, 10), //Hasheo de password
     });
   }
 
   async login({ email, password }: LoginDto) {
-    const findUserMail = await this.usersService.findOneByEmail(email);
+    const user = await this.usersService.findOneByEmail(email);
 
-    if (!findUserMail) {
+    if (!user) {
       return new HttpException(
         'Wrong email or password',
         HttpStatus.UNAUTHORIZED,
       );
     }
 
-    const isPasswordValid = await bcryptjs.compare(
-      password,
-      findUserMail.password,
-    );
+    // Comparo password hasheada
+    const isPasswordValid = await bcryptjs.compare(password, user.password);
 
     if (!isPasswordValid) {
       return new HttpException(
@@ -45,6 +47,11 @@ export class AuthService {
       );
     }
 
-    return findUserMail;
+    // Crear y devolver token
+    const payload = { email: user.email };
+
+    const token = await this.jwtService.signAsync(payload);
+    const { firstname, lastname, rol } = user;
+    return { email, rol, firstname, lastname, token };
   }
 }
