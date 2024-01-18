@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 /* import { UpdateUserDto } from './dto/update-user.dto'; */
 import { InjectRepository } from '@nestjs/typeorm';
@@ -12,15 +12,7 @@ export class UsersService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
-    const findUserMail = await this.userRepository.find({
-      where: { email: createUserDto.email },
-    });
-    /* return findUserMail; */
-
-    if (findUserMail.length > 0) {
-      return new HttpException('Email alredy exists', HttpStatus.AMBIGUOUS);
-    }
+  create(createUserDto: CreateUserDto) {
     return this.userRepository.save(createUserDto);
   }
 
