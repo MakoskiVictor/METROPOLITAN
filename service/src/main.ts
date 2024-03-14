@@ -7,6 +7,13 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api/v1');
 
+  app.enableCors({
+    origin: 'http://localhost:3001/',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: true,
+    optionsSuccessStatus: 200,
+  });
+
   // Si no pasa las validaciones, arroja error (instalar class-transformer)
   app.useGlobalPipes(
     new ValidationPipe({
@@ -15,12 +22,6 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  app.enableCors({
-    origin: 'http://localhost:3001',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: true,
-    optionsSuccessStatus: 200,
-  });
   await app.listen(3000);
 }
 bootstrap();
