@@ -19,7 +19,7 @@ async function bootstrap() {
     origin: 'http://localhost:3001',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
-    optionsSuccessStatus: 204,
+    optionsSuccessStatus: 200,
   });
   await app.listen(3000);
 }
