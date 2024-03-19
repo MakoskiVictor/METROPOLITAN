@@ -19,14 +19,14 @@ export class AuthService {
     if (findUserMail) {
       return new HttpException('Email alredy exists', HttpStatus.CONFLICT);
     }
-     await this.usersService.create({
+    await this.usersService.create({
       firstname,
       lastname,
       email,
       password: await bcryptjs.hash(password, 10), //Hasheo de password
     });
 
-    return {message: "Registered successfully!"}
+    return { message: 'Registered successfully!' };
   }
 
   async login({ email, password }: LoginDto) {
