@@ -8,13 +8,6 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api/v1');
 
-  app.enableCors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: true,
-    optionsSuccessStatus: 200,
-  });
-
   const config = new DocumentBuilder()
     .setTitle('Register example')
     .setDescription('The register API description')
@@ -22,6 +15,14 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
+  
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: true,
+    optionsSuccessStatus: 200,
+  });
+
   // Si no pasa las validaciones, arroja error (instalar class-transformer)
   app.useGlobalPipes(
     new ValidationPipe({
