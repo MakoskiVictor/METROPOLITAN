@@ -15,6 +15,13 @@ async function bootstrap() {
     optionsSuccessStatus: 200,
   });
 
+  const config = new DocumentBuilder()
+    .setTitle('Register example')
+    .setDescription('The register API description')
+    .setVersion('1.0')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('docs', app, document);
   // Si no pasa las validaciones, arroja error (instalar class-transformer)
   app.useGlobalPipes(
     new ValidationPipe({
@@ -24,13 +31,6 @@ async function bootstrap() {
     }),
   );
 
-  const config = new DocumentBuilder()
-    .setTitle('Register example')
-    .setDescription('The register API description')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
   await app.listen(3000);
 }
 bootstrap();
